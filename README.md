@@ -43,7 +43,6 @@ This tool was developed for a safety-focused hackathon challenge to:
 - 📊 Class-wise metric comparison between datasets
 - 🔔 Alert simulation for selected classes
 - 🖼️ Mosaic image showcasing detections
-- ☁️ Deployable using **Streamlit Cloud**
 
 ---
 ## 📚 References & Research Inspiration
