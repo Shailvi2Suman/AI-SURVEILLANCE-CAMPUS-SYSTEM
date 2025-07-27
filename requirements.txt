@@ -14,3 +14,6 @@ scikit-learn
 git+https://github.com/ultralytics/yolov5.git
 wandb         # for logging runs (optional)
 notebook      # if you want to open notebooks locally
+streamlit
+Pillow
+numpy
