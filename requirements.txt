@@ -1,0 +1,16 @@
+streamlit
+pandas
+numpy
+opencv-python
+Pillow
+matplotlib
+PyYAML
+torch==2.0.1
+torchvision==0.15.2
+tqdm
+seaborn
+ultralytics==8.0.20
+scikit-learn
+git+https://github.com/ultralytics/yolov5.git
+wandb         # for logging runs (optional)
+notebook      # if you want to open notebooks locally
