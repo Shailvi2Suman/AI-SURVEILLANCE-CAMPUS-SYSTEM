@@ -34,7 +34,6 @@ This tool was developed for a safety-focused hackathon challenge to:
 
 - Compare YOLOv5 model performance across two datasets (VIRAT & OSF)
 - Display class-wise metrics: **Precision**, **Recall**, **mAP@0.5**
-- Simulate safety alerts based on model outputs
 - Visualize detection capability using a **mosaic image**
 
 ---
