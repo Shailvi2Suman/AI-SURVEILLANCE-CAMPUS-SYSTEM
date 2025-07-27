@@ -2,63 +2,37 @@ import streamlit as st
 import pandas as pd
 
 # -------------------------------
-# Class-wise Metrics (Manually filled)
+# Run Summary Data (Final YOLOv5 metrics)
 # -------------------------------
-
-virat_metrics = {
-    'Class': ['person', 'helmet', 'no helmet', 'restricted area'],
-    'Precision': [0.61, 0.55, 0.40, 0.60],
-    'Recall': [0.33, 0.30, 0.20, 0.50],
-    'mAP@0.5': [0.33, 0.30, 0.15, 0.34]
+virat_summary = {
+    "Metric": ["Precision", "Recall", "mAP@0.5", "mAP@0.5:0.95"],
+    "Value": [0.61022, 0.33333, 0.33564, 0.12963]
 }
 
-osf_metrics = {
-    'Class': ['person', 'helmet', 'no helmet', 'restricted area'],
-    'Precision': [0.34, 0.31, 0.20, 0.25],
-    'Recall': [0.17, 0.12, 0.05, 0.10],
-    'mAP@0.5': [0.06, 0.05, 0.02, 0.04]
+osf_summary = {
+    "Metric": ["Precision", "Recall", "mAP@0.5", "mAP@0.5:0.95"],
+    "Value": [0.33441, 0.17446, 0.06868, 0.01682]
 }
 
 # -------------------------------
-# App UI
+# Streamlit App Layout
 # -------------------------------
+st.set_page_config(page_title="YOLOv5 Run Summary", layout="centered")
 
-st.title("🚨 Helmet & Safety Alert System (YOLOv5-based)")
+st.title("📊 YOLOv5 Run Summary Dashboard")
 
-dataset_choice = st.selectbox("Select Dataset", ["VIRAT", "OSF"])
+dataset = st.selectbox("Select Dataset", ["VIRAT", "OSF"])
 
-if dataset_choice == "VIRAT":
-    df = pd.DataFrame(virat_metrics)
+if dataset == "VIRAT":
+    df = pd.DataFrame(virat_summary)
+    st.subheader("🔍 VIRAT Dataset Run Summary")
 else:
-    df = pd.DataFrame(osf_metrics)
+    df = pd.DataFrame(osf_summary)
+    st.subheader("🔍 OSF Dataset Run Summary")
 
-st.subheader("📊 Class-wise Model Performance")
-st.dataframe(df.style.format({'Precision': '{:.2f}', 'Recall': '{:.2f}', 'mAP@0.5': '{:.2f}'}))
+# Display table
+st.table(df.style.format({"Value": "{:.5f}"}))
 
-# -------------------------------
-# Alert Simulation
-# -------------------------------
-st.subheader("🔔 Simulated Alert System")
-
-selected_class = st.selectbox("Choose Class to Simulate Alert", df['Class'])
-
-row = df[df['Class'] == selected_class].iloc[0]
-prec, rec = row['Precision'], row['Recall']
-
-if prec < 0.3:
-    st.error(f"⚠️ ALERT: Low precision ({prec:.2f}) for '{selected_class}'. System may miss or falsely detect.")
-elif prec < 0.5:
-    st.warning(f"⚠️ Moderate precision ({prec:.2f}) for '{selected_class}'. Consider reviewing detections.")
-else:
-    st.success(f"✅ Good precision ({prec:.2f}) for '{selected_class}'. Detection is reliable.")
-
-st.markdown(f"- **Recall**: {rec:.2f}  
-- **mAP@0.5**: {row['mAP@0.5']:.2f}")
-
-st.caption("Simulated using training results. No live image detection is performed.")
-
-# -------------------------------
 # Footer
-# -------------------------------
 st.markdown("---")
-st.markdown("Developed for Hackathon – *Helmet & Safety Violation Detection* 🚧")
+st.caption("Developed for the Hackathon – Helmet & Safety Violation Detection 🚧")
