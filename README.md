@@ -47,6 +47,16 @@ This tool was developed for a safety-focused hackathon challenge to:
 - ☁️ Deployable using **Streamlit Cloud**
 
 ---
+## 📚 References & Research Inspiration
+
+- 🔬 **Helmet Detection Using Deep Learning and Surveillance Video**  
+  *A research-backed approach to helmet detection in real-world video streams.*  
+  [Read on Nature.com →](https://www.nature.com/articles/s41598-023-45383-x#Sec2)
+
+- 🖼️ **Contrast Adaptive Histogram Equalization (CLAHE)** – MATLAB  
+  *Used for enhancing low-light or contrast-deficient video frames for better detection accuracy.*  
+  [View MATLAB documentation →](https://www.mathworks.com/help/visionhdl/ug/contrast-adaptive-histogram-equalization.html)
+
 
 ## 🛠️ Installation
 
